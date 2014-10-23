@@ -1,5 +1,22 @@
+When building with browserify with factor-bundle plugin, the dist/main.js is missing the ending chunk and the entry point postfix (i.e. [1]}); )
+
+The difference from the good build to bad build is only:
+========================================================
+```
+if (process.env.HACK_BROWSERIFY_BUILD) {
+	// actualy that code does nothing, just puts a wrapper function on top of the write function, that shouldn't affect anything
+	// and yet, it does.
+        var Writable = require('stream').Writable;
+        var oldWrite = Writable.prototype.write;
+
+        Writable.prototype.write = function (chunk, encoding, cb) {
+                oldWrite.apply(this, arguments);
+        };
+}
+```
+
 good build:
-==========
+===========
 HACK_BROWSERIFY_BUILD=yes ./build.sh
 
 result:
