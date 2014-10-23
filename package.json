@@ -1,0 +1,16 @@
+{
+  "name": "bug",
+  "version": "1.0.0",
+  "description": "Bug reproduction attempt",
+  "main": "entry.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Yury Michurin <yury.michurin@conduit.com>",
+  "license": "ISC",
+  "dependencies": {
+    "browserify-shim": "^3.8.0",
+    "debug": "^2.1.0",
+    "factor-bundle": "^2.3.0"
+  }
+}
